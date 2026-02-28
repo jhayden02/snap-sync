@@ -1,6 +1,7 @@
 # snap-sync
 # https://github.com/wesbarnett/snap-sync
 # Copyright (C) 2016-2018 Wes Barnett
+# Copyright (C) 2026 Josh Hayden
 
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -23,7 +24,7 @@ BIN_DIR = $(DESTDIR)$(PREFIX)/bin
 SYSTEMD_DIR = $(DESTDIR)$(PREFIX)/lib/systemd/system
 SHARE_DIR = $(DESTDIR)$(PREFIX)/share
 
-.PHONY: install
+.PHONY: install uninstall
 
 install:
 	@./find_snapper_config || sed -i 's@^SNAPPER_CONFIG.*@SNAPPER_CONFIG='$(SNAPPER_CONFIG)'@g' bin/$(PKGNAME)
@@ -31,3 +32,9 @@ install:
 	@install -Dm644 README.md -t $(SHARE_DIR)/doc/$(PKGNAME)/
 	@install -Dm644 man8/* -t $(SHARE_DIR)/man/man8/
 	@install -Dm755 bin/* -t $(BIN_DIR)/
+
+uninstall:
+	@rm -f $(BIN_DIR)/$(PKGNAME)
+	@rm -f $(SHARE_DIR)/man/man8/$(PKGNAME).8
+	@rm -rf $(SHARE_DIR)/licenses/$(PKGNAME)
+	@rm -rf $(SHARE_DIR)/doc/$(PKGNAME)

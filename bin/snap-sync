@@ -2,6 +2,7 @@
 # snap-sync
 # https://github.com/wesbarnett/snap-sync
 # Copyright (C) 2016-2021 Wes Barnett
+# Copyright (C) 2026 Josh Hayden
 
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -29,7 +30,7 @@ set -o errtrace
 version="0.7"
 name="snap-sync"
 
-printf "\nsnap-sync version %s, Copyright (C) 2016-2021 Wes Barnett\n" "$version"
+printf "\nsnap-sync version %s, Copyright (C) 2016-2021 Wes Barnett, 2026 Josh Hayden\n" "$version"
 printf "snap-sync comes with ABSOLUTELY NO WARRANTY. This is free software, and you are welcome to redistribute it under certain conditions. See the license for more information. \n\n"
 
 # The following line is modified by the Makefile or
