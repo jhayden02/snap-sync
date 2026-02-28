@@ -163,7 +163,7 @@ notify() {
     for u in $(users | tr ' ' '\n' | sort -u); do
         sudo -u $u DISPLAY=:0 \
         DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$(sudo -u $u id -u)/bus \
-        notify-send -a $name "$1" "$2" --icon="dialog-$3"
+        notify-send -a $name "$1" "$2" --icon="dialog-$3" 2>/dev/null || true
     done
 }
 
